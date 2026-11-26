@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-accent: #ffad50;
+  --color-cyan: #80deea;
+  --color-ink: #0b0d10;
+  --color-paper: #f3efe8;
+  --color-muted: #9aa3ad;
+  --color-line: rgba(255, 255, 255, 0.1);
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk Variable", "Inter Variable", ui-sans-serif, sans-serif;
+}
+
+html {
+  background: var(--color-ink);
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-paper);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Cursor-following glow in the hero. --mx and --my are set from pointer movement. */
+.hero-glow {
+  background:
+    radial-gradient(520px circle at var(--mx, 75%) var(--my, 35%), rgba(255, 173, 80, 0.18), transparent 62%),
+    radial-gradient(480px circle at 10% 90%, rgba(128, 222, 234, 0.12), transparent 60%);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
