@@ -45,3 +45,56 @@ select:focus-visible {
     scroll-behavior: auto;
   }
 }
+
+/* Styles for WordPress post bodies on individual post pages. */
+.post-body {
+  color: var(--color-muted);
+  font-size: 1.125rem;
+  line-height: 1.85;
+}
+.post-body > * + * {
+  margin-top: 1.25rem;
+}
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  color: var(--color-paper);
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.25;
+  margin-top: 2.5rem;
+}
+.post-body h2 { font-size: 2rem; }
+.post-body h3 { font-size: 1.5rem; }
+.post-body a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.post-body strong { color: var(--color-paper); }
+.post-body ul { list-style: disc; padding-left: 1.5rem; }
+.post-body ol { list-style: decimal; padding-left: 1.5rem; }
+.post-body blockquote {
+  border-left: 3px solid var(--color-accent);
+  padding-left: 1.25rem;
+  color: var(--color-paper);
+}
+.post-body img,
+.post-body figure {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+}
+.post-body code {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 0.35rem;
+  padding: 0.1rem 0.35rem;
+  font-size: 0.95em;
+}
+.post-body pre {
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-line);
+  border-radius: 1rem;
+  padding: 1.25rem;
+}

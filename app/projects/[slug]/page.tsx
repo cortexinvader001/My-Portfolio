@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Thumb } from "@/components/Thumb";
 import { PROJECTS, getProject } from "@/lib/projects";
+import { absoluteUrl } from "@/lib/site.config";
 
 export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }));
@@ -11,10 +12,21 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
-  if (!project) return { title: "Project not found" };
+  if (!project) return { title: "Project not found", robots: { index: false, follow: false } };
+  const canonical = `/projects/${project.slug}/`;
+  const image = absoluteUrl(project.thumbnail || "/images/og-cover.jpg");
   return {
     title: project.name,
     description: project.summary,
+    alternates: { canonical },
+    openGraph: {
+      type: "article",
+      title: project.name,
+      description: project.summary,
+      url: absoluteUrl(canonical),
+      images: [{ url: image, width: 1200, height: 630, alt: `${project.name} preview` }],
+    },
+    twitter: { card: "summary_large_image", title: project.name, description: project.summary, images: [image] },
   };
 }
 

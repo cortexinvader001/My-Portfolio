@@ -4,16 +4,48 @@ import { Hero } from "@/components/Hero";
 import { About } from "@/components/About";
 import { ProjectGrid } from "@/components/ProjectGrid";
 import { PROJECTS } from "@/lib/projects";
+import { absoluteUrl, site } from "@/lib/site.config";
 
 export const metadata: Metadata = {
   title: { absolute: "Kolawole Suleiman — Cortex | Developer, AI agents and interactive web" },
   description:
     "Kolawole Suleiman (Cortex) builds Telegram AI agents, food ordering sites and interactive web experiences. Cortex — Where Curiosity Meets Intelligence.",
+  alternates: { canonical: "/" },
 };
+
+// Structured data: tells search engines who this site belongs to.
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: site.name,
+    alternateName: site.handle,
+    url: site.url,
+    image: absoluteUrl("/images/hero-portrait.png"),
+    jobTitle: "Developer",
+    description: site.description,
+    sameAs: [site.github],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Cortex",
+    url: site.url,
+    description: site.description,
+    author: { "@type": "Person", name: site.name },
+  },
+];
 
 export default function Home() {
   return (
     <>
+      {structuredData.map((item) => (
+        <script
+          key={item["@type"]}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(item).replace(/</g, "\\u003c") }}
+        />
+      ))}
       <Hero />
       <About />
 

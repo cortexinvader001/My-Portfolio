@@ -3,6 +3,7 @@ import Link from "next/link";
 import { site } from "@/lib/site.config";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact/" },
   title: "Contact",
   description: "Contact Kolawole Suleiman (Cortex) by email, WhatsApp or GitHub.",
 };
