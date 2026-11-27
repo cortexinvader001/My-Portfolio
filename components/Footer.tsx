@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { site } from "@/lib/site.config";
-
+"use client";
+import { useEffect, useState } from "react";
 const PAGES = [
   { href: "/about", label: "About" },
   { href: "/stack", label: "Stack" },
@@ -60,8 +61,27 @@ export function Footer() {
               React Bits
             </a>
           </p>
+          <p>Visitor Count: {visitors ?? "..."}</p>
         </div>
       </div>
     </footer>
+    const [visitors, setVisitors] = useState<number | null>(null);
+
+useEffect(() => {
+  const key = "kolawole-suleiman";
+  const lastVisit = localStorage.getItem("last-visit-" + key);
+  const now = Date.now();
+  const fiveHours = 5 * 60 * 60 * 1000;
+
+  let url: string;
+  if (!lastVisit || now - Number(lastVisit) > fiveHours) {
+    url = `https://api.countapi.xyz/hit/${key}/visits`;
+    localStorage.setItem("last-visit-" + key, String(now));
+  } else {
+    url = `https://api.countapi.xyz/get/${key}/visits`;
+  }
+
+  fetch(url).then((res) => res.json()).then((data) => setVisitors(data.value));
+}, []);
   );
 }
