@@ -70,7 +70,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             rel="noopener noreferrer"
             className="mt-10 inline-flex h-12 items-center rounded-full bg-accent px-6 font-semibold text-ink transition-colors hover:bg-cyan"
           >
-            View on GitHub →
+            View ↗
           </a>
         </aside>
       </div>
