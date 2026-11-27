@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "/blog/" },
-  openGraph: { title, description, url: absoluteUrl("/blog/"), type: "website" },
+  openGraph: { title, description, url: absoluteUrl("/blog/"), type: "website", siteName: "Cortex", images: [absoluteUrl("/images/og-cover.jpg")] },
 };
 
 export default async function BlogPage() {
