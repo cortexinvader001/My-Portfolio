@@ -23,8 +23,8 @@ export const PROJECTS: Project[] = [
       "Simple messages go to a fast model with no tools attached. The full agent only takes over when a request needs tools, which keeps request costs down. Usage counters are available in chat.",
       "A safety guard blocks risky shell commands, such as privilege escalation and piping remote scripts into a shell. Pushes and destructive deletes require explicit confirmation.",
     ],
-    stack: ["Python", "Telegram Bot API", "Gemini API", "Agent tools", "Skills system"],
-    repo: "https://github.com/cortexinvader001/Telebot",
+    stack: ["Python", "Telegram Bot API", "Gemini API", "Agent tools", "Skills system", "Agnes API"],
+    repo: "https://t.me/Smankora_bot",
     flagship: true,
   },
   {
@@ -39,7 +39,7 @@ export const PROJECTS: Project[] = [
       "Visitors add items to an order and tap a single button. WhatsApp opens with the order already written out, including a total when every chosen item has a price. There is no payment step or server involved.",
     ],
     stack: ["Next.js", "TypeScript", "GSAP", "Lenis", "Tailwind CSS", "React Bits"],
-    repo: "https://github.com/cortexinvader001/Cortex-cooks",
+    repo: "https://cortex-cooks.onrender.com/",
     thumbnail: "/images/projects/cortex-cooks.jpg",
   },
   {
@@ -54,7 +54,7 @@ export const PROJECTS: Project[] = [
       "The site exports to plain static files, so it runs as a free static site on Render with no server to maintain.",
     ],
     stack: ["Next.js", "Tailwind CSS", "Motion", "GSAP", "React Bits"],
-    repo: "https://github.com/cortexinvader001/WaffyBite-",
+    repo: "https://waffybite.onrender.com/",
     thumbnail: "/images/projects/waffybite.webp",
   },
 ];
