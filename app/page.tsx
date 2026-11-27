@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   description:
     "Kolawole Suleiman (Cortex) builds Telegram AI agents, food ordering sites and interactive web experiences. Cortex — Where Curiosity Meets Intelligence.",
   alternates: { canonical: "/" },
+  verification: {
+  google: "y2IvNJgRN5NrCgqyam0nawkq3UnUzclFRB70bAF_4ZM",
+},
 };
 
 // Structured data: tells search engines who this site belongs to.
