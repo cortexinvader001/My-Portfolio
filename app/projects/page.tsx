@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/projects/" },
   title: "Projects",
   description:
-    "Selected projects by Kolawole Suleiman (Cortex): the Telebot Telegram AI agent, Cortex Cooks and the WaffyBite ordering site.",
+    "Selected projects by Kolawole Suleiman (Cortex).",
 };
 
 export default function ProjectsPage() {
