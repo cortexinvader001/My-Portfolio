@@ -32,5 +32,5 @@ export const blog = {
 // Web3Forms access key from https://web3forms.com (safe to place in the front end).
 // Leave empty until the key is added. The quote form shows a WhatsApp fallback until then.
 export const web3forms = {
-  accessKey: "",
+  accessKey: "e91c32d8-52c7-4834-b662-9a1cbf41c5f3",
 };
