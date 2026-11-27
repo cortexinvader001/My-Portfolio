@@ -16,20 +16,21 @@ export function Footer() {
   const [visitors, setVisitors] = useState<number | null>(null);
 
   useEffect(() => {
-    const key = "kolawole-suleiman";
-    const lastVisit = localStorage.getItem("last-visit-" + key);
-    const now = Date.now();
-    const fiveHours = 5 * 60 * 60 * 1000;
+    const storageKey = "cortex-last-visit";
+    const last = Number(localStorage.getItem(storageKey));
+    const isNew = Date.now() - last > 5 * 60 * 60 * 1000;
+    const action = isNew ? "hit" : "get";
 
-    let url: string;
-    if (!lastVisit || now - Number(lastVisit) > fiveHours) {
-      url = `https://api.countapi.xyz/hit/${key}/visits`;
-      localStorage.setItem("last-visit-" + key, String(now));
-    } else {
-      url = `https://api.countapi.xyz/get/${key}/visits`;
-    }
-
-    fetch(url).then((res) => res.json()).then((data) => setVisitors(data.value));
+    fetch(`https://abacus.jasoncameron.dev/${action}/cortex-portfolio/visits`)
+      .then((res) => {
+        if (!res.ok) throw new Error("Counter failed");
+        return res.json();
+      })
+      .then((data) => {
+        setVisitors(data.value);
+        if (isNew) localStorage.setItem(storageKey, String(Date.now()));
+      })
+      .catch(() => {});
   }, []);
 
   return (
